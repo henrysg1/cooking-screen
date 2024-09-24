@@ -15,9 +15,18 @@ extern "C" {
 #include "ui_helpers.h"
 #include "ui_events.h"
 
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-extern lv_obj_t * ui_Screen1;
+// SCREEN: ui_WelcomeScreen
+void ui_WelcomeScreen_screen_init(void);
+extern lv_obj_t * ui_WelcomeScreen;
+extern lv_obj_t * ui_Keyboard2;
+extern lv_obj_t * ui_Welcome;
+extern lv_obj_t * ui_StartClock;
+void ui_event_Button1(lv_event_t * e);
+extern lv_obj_t * ui_Button1;
+extern lv_obj_t * ui_Label4;
+// SCREEN: ui_WifiScreen
+void ui_WifiScreen_screen_init(void);
+extern lv_obj_t * ui_WifiScreen;
 void ui_event_SSID(lv_event_t * e);
 extern lv_obj_t * ui_SSID;
 void ui_event_Password(lv_event_t * e);
@@ -25,11 +34,155 @@ extern lv_obj_t * ui_Password;
 extern lv_obj_t * ui_Status;
 void ui_event_Connect(lv_event_t * e);
 extern lv_obj_t * ui_Connect;
+extern lv_obj_t * ui_Label1;
+extern lv_obj_t * ui_Keyboard1;
+// SCREEN: ui_HomeScreen
+void ui_HomeScreen_screen_init(void);
+extern lv_obj_t * ui_HomeScreen;
+extern lv_obj_t * ui_Keyboard3;
+extern lv_obj_t * ui_Container1;
+extern lv_obj_t * ui_Label2;
+void ui_event_FavouriteTile1(lv_event_t * e);
+extern lv_obj_t * ui_FavouriteTile1;
+extern lv_obj_t * ui_FavouriteTile2;
+extern lv_obj_t * ui_FavouriteTile3;
+extern lv_obj_t * ui_FavouriteTile4;
+extern lv_obj_t * ui_FavouriteTile5;
+extern lv_obj_t * ui_FavouriteTitle1;
+extern lv_obj_t * ui_FavouriteTitle2;
+extern lv_obj_t * ui_FavouriteTitle3;
+extern lv_obj_t * ui_FavouriteTitle4;
+extern lv_obj_t * ui_FavouriteTitle5;
+extern lv_obj_t * ui_Divider;
+extern lv_obj_t * ui_Divider1;
+void ui_event_RandomRecipeButton(lv_event_t * e);
+extern lv_obj_t * ui_RandomRecipeButton;
+extern lv_obj_t * ui_Label5;
 extern lv_obj_t * ui_Label3;
-extern lv_obj_t * ui_Keyboard2;
+extern lv_obj_t * ui_BrowseButton;
+extern lv_obj_t * ui_Label6;
+extern lv_obj_t * ui_Label7;
+extern lv_obj_t * ui_HomeTabButton;
+extern lv_obj_t * ui_HomeLabel;
+extern lv_obj_t * ui_SelectedLabel;
+void ui_event_BrowseTabButton(lv_event_t * e);
+extern lv_obj_t * ui_BrowseTabButton;
+extern lv_obj_t * ui_BrowseLabel;
+void ui_event_ShoppingTabButton(lv_event_t * e);
+extern lv_obj_t * ui_ShoppingTabButton;
+extern lv_obj_t * ui_ShoppingLabel5;
+// SCREEN: ui_BrowseScreen
+void ui_BrowseScreen_screen_init(void);
+extern lv_obj_t * ui_BrowseScreen;
+extern lv_obj_t * ui_Keyboard4;
+extern lv_obj_t * ui_Container2;
+extern lv_obj_t * ui_Label8;
+void ui_event_FavouriteTile6(lv_event_t * e);
+extern lv_obj_t * ui_FavouriteTile6;
+extern lv_obj_t * ui_FavouriteTile7;
+extern lv_obj_t * ui_FavouriteTile8;
+extern lv_obj_t * ui_FavouriteTile9;
+extern lv_obj_t * ui_FavouriteTile10;
+extern lv_obj_t * ui_FavouriteTitle6;
+extern lv_obj_t * ui_FavouriteTitle7;
+extern lv_obj_t * ui_FavouriteTitle8;
+extern lv_obj_t * ui_FavouriteTitle9;
+extern lv_obj_t * ui_FavouriteTitle10;
+extern lv_obj_t * ui_FavouriteTile11;
+extern lv_obj_t * ui_FavouriteTile12;
+extern lv_obj_t * ui_FavouriteTile13;
+extern lv_obj_t * ui_FavouriteTile14;
+extern lv_obj_t * ui_FavouriteTile15;
+extern lv_obj_t * ui_BrowseTabButton1;
+extern lv_obj_t * ui_BrowseLabel1;
+extern lv_obj_t * ui_SelectedLabel1;
+void ui_event_HomeTabButton1(lv_event_t * e);
+extern lv_obj_t * ui_HomeTabButton1;
+extern lv_obj_t * ui_HomeLabel1;
+void ui_event_ShoppingTabButton2(lv_event_t * e);
+extern lv_obj_t * ui_ShoppingTabButton2;
+extern lv_obj_t * ui_ShoppingLabel6;
+// SCREEN: ui_ShoppingScreen
+void ui_ShoppingScreen_screen_init(void);
+extern lv_obj_t * ui_ShoppingScreen;
+extern lv_obj_t * ui_Container3;
+extern lv_obj_t * ui_Label10;
+extern lv_obj_t * ui_Label9;
+extern lv_obj_t * ui_AddToShoppingListButton1;
+extern lv_obj_t * ui_Label12;
+extern lv_obj_t * ui_ShoppingListText;
+extern lv_obj_t * ui_Divider2;
+void ui_event_AddToShoppingListField(lv_event_t * e);
+extern lv_obj_t * ui_AddToShoppingListField;
+extern lv_obj_t * ui_Keyboard5;
+extern lv_obj_t * ui_Label11;
+extern lv_obj_t * ui_AddToShoppingListButton;
+extern lv_obj_t * ui_Label13;
+void ui_event_BrowseTabButton3(lv_event_t * e);
+extern lv_obj_t * ui_BrowseTabButton3;
+extern lv_obj_t * ui_BrowseLabel5;
+void ui_event_HomeTabButton3(lv_event_t * e);
+extern lv_obj_t * ui_HomeTabButton3;
+extern lv_obj_t * ui_HomeLabel3;
+extern lv_obj_t * ui_ShoppingTabButton1;
+extern lv_obj_t * ui_ShoppingLabel;
+extern lv_obj_t * ui_SelectedLabel3;
+// SCREEN: ui_DescriptionScreen
+void ui_DescriptionScreen_screen_init(void);
+extern lv_obj_t * ui_DescriptionScreen;
+extern lv_obj_t * ui_Keyboard6;
+extern lv_obj_t * ui_Container4;
+extern lv_obj_t * ui_RecipeTitle;
+extern lv_obj_t * ui_DescriptionText;
+extern lv_obj_t * ui_Divider3;
+extern lv_obj_t * ui_AddToShoppingListButton3;
+extern lv_obj_t * ui_Label18;
+extern lv_obj_t * ui_RecipeImage;
+void ui_event_RecipeStartButton(lv_event_t * e);
+extern lv_obj_t * ui_RecipeStartButton;
+extern lv_obj_t * ui_Label14;
+extern lv_obj_t * ui_AddToShoppingListButton2;
+extern lv_obj_t * ui_Label16;
+void ui_event_ShoppingTabButton3(lv_event_t * e);
+extern lv_obj_t * ui_ShoppingTabButton3;
+extern lv_obj_t * ui_ShoppingLabel2;
+void ui_event_BrowseTabButton4(lv_event_t * e);
+extern lv_obj_t * ui_BrowseTabButton4;
+extern lv_obj_t * ui_BrowseLabel2;
+void ui_event_HomeTabButton4(lv_event_t * e);
+extern lv_obj_t * ui_HomeTabButton4;
+extern lv_obj_t * ui_HomeLabel4;
+// SCREEN: ui_RecipeScreen
+void ui_RecipeScreen_screen_init(void);
+extern lv_obj_t * ui_RecipeScreen;
+extern lv_obj_t * ui_Keyboard7;
+extern lv_obj_t * ui_Container5;
+extern lv_obj_t * ui_Label15;
+extern lv_obj_t * ui_NextStepButton;
+extern lv_obj_t * ui_Image2;
+extern lv_obj_t * ui_PreviousStepButton;
+extern lv_obj_t * ui_Image1;
+void ui_event_ShoppingTabButton4(lv_event_t * e);
+extern lv_obj_t * ui_ShoppingTabButton4;
+extern lv_obj_t * ui_ShoppingLabel3;
+void ui_event_BrowseTabButton5(lv_event_t * e);
+extern lv_obj_t * ui_BrowseTabButton5;
+extern lv_obj_t * ui_BrowseLabel3;
+void ui_event_HomeTabButton5(lv_event_t * e);
+extern lv_obj_t * ui_HomeTabButton5;
+extern lv_obj_t * ui_HomeLabel5;
 extern lv_obj_t * ui____initial_actions0;
 
 
+LV_IMG_DECLARE(ui__temporary_image);
+LV_IMG_DECLARE(ui_img_curry100_png);    // assets/curry100.png
+LV_IMG_DECLARE(ui_img_burger100_png);    // assets/burger100.png
+LV_IMG_DECLARE(ui_img_beans100_png);    // assets/beans100.png
+LV_IMG_DECLARE(ui_img_bol100_png);    // assets/bol100.png
+LV_IMG_DECLARE(ui_img_dot100_png);    // assets/dot100.png
+LV_IMG_DECLARE(ui_img_ban100_png);    // assets/ban100.png
+LV_IMG_DECLARE(ui_img_curry200_png);    // assets/curry200.png
+LV_IMG_DECLARE(ui_img_arrow_png);    // assets/arrow.png
 
 
 

@@ -5,12 +5,12 @@
 
 #include "../ui.h"
 
-void ui_Screen1_screen_init(void)
+void ui_WifiScreen_screen_init(void)
 {
-    ui_Screen1 = lv_obj_create(NULL);
-    lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_WifiScreen = lv_obj_create(NULL);
+    lv_obj_clear_flag(ui_WifiScreen, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_SSID = lv_textarea_create(ui_Screen1);
+    ui_SSID = lv_textarea_create(ui_WifiScreen);
     lv_obj_set_width(ui_SSID, 400);
     lv_obj_set_height(ui_SSID, LV_SIZE_CONTENT);    /// 42
     lv_obj_set_x(ui_SSID, 0);
@@ -21,7 +21,7 @@ void ui_Screen1_screen_init(void)
 
 
 
-    ui_Password = lv_textarea_create(ui_Screen1);
+    ui_Password = lv_textarea_create(ui_WifiScreen);
     lv_obj_set_width(ui_Password, 400);
     lv_obj_set_height(ui_Password, LV_SIZE_CONTENT);    /// 42
     lv_obj_set_x(ui_Password, 0);
@@ -32,7 +32,7 @@ void ui_Screen1_screen_init(void)
 
 
 
-    ui_Status = lv_label_create(ui_Screen1);
+    ui_Status = lv_label_create(ui_WifiScreen);
     lv_obj_set_width(ui_Status, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Status, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_Status, 0);
@@ -40,7 +40,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_Status, LV_ALIGN_CENTER);
     lv_label_set_text(ui_Status, "Not Connected");
 
-    ui_Connect = lv_btn_create(ui_Screen1);
+    ui_Connect = lv_btn_create(ui_WifiScreen);
     lv_obj_set_width(ui_Connect, 100);
     lv_obj_set_height(ui_Connect, 50);
     lv_obj_set_x(ui_Connect, 0);
@@ -49,19 +49,19 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_Connect, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_clear_flag(ui_Connect, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Label3 = lv_label_create(ui_Connect);
-    lv_obj_set_width(ui_Label3, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_Label3, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_align(ui_Label3, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label3, "Connect");
+    ui_Label1 = lv_label_create(ui_Connect);
+    lv_obj_set_width(ui_Label1, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label1, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label1, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label1, "Connect");
 
-    ui_Keyboard2 = lv_keyboard_create(ui_Screen1);
-    lv_obj_set_width(ui_Keyboard2, 450);
-    lv_obj_set_height(ui_Keyboard2, 180);
-    lv_obj_set_x(ui_Keyboard2, 1);
-    lv_obj_set_y(ui_Keyboard2, 136);
-    lv_obj_set_align(ui_Keyboard2, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Keyboard2, LV_OBJ_FLAG_HIDDEN);     /// Flags
+    ui_Keyboard1 = lv_keyboard_create(ui_WifiScreen);
+    lv_obj_set_width(ui_Keyboard1, 450);
+    lv_obj_set_height(ui_Keyboard1, 180);
+    lv_obj_set_x(ui_Keyboard1, 1);
+    lv_obj_set_y(ui_Keyboard1, 136);
+    lv_obj_set_align(ui_Keyboard1, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN);     /// Flags
 
     lv_obj_add_event_cb(ui_SSID, ui_event_SSID, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Password, ui_event_Password, LV_EVENT_ALL, NULL);

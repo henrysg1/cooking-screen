@@ -18,6 +18,8 @@
 #include "lvgl.h"
 
 #include "wifi_connect.h"
+#include "time_display.h"
+
 #include "nvs_flash.h"
 
 #include "driver/i2c.h"
@@ -420,5 +422,7 @@ void app_main(void)
         example_lvgl_unlock();
     }
     
-    wifi_init(); 
+    xTaskCreate(updateClockTask, "ClockTask", 2048, NULL, 1, NULL);
+
+    //wifi_init(); 
 }
