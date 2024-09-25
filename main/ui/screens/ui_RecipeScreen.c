@@ -150,7 +150,7 @@ void ui_RecipeScreen_screen_init(void)
     ui_SettingsButton = lv_btn_create(ui_RecipeScreen);
     lv_obj_set_width(ui_SettingsButton, 50);
     lv_obj_set_height(ui_SettingsButton, 50);
-    lv_obj_set_x(ui_SettingsButton, 370);
+    lv_obj_set_x(ui_SettingsButton, 310);
     lv_obj_set_y(ui_SettingsButton, -215);
     lv_obj_set_align(ui_SettingsButton, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_SettingsButton, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
@@ -172,7 +172,7 @@ void ui_RecipeScreen_screen_init(void)
     ui_WifiButton = lv_btn_create(ui_RecipeScreen);
     lv_obj_set_width(ui_WifiButton, 50);
     lv_obj_set_height(ui_WifiButton, 50);
-    lv_obj_set_x(ui_WifiButton, 310);
+    lv_obj_set_x(ui_WifiButton, 250);
     lv_obj_set_y(ui_WifiButton, -215);
     lv_obj_set_align(ui_WifiButton, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_WifiButton, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
@@ -190,10 +190,104 @@ void ui_RecipeScreen_screen_init(void)
     lv_obj_add_flag(ui_WifiImage, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_WifiImage, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
+    ui_PowerButton = lv_btn_create(ui_RecipeScreen);
+    lv_obj_set_width(ui_PowerButton, 50);
+    lv_obj_set_height(ui_PowerButton, 50);
+    lv_obj_set_x(ui_PowerButton, 370);
+    lv_obj_set_y(ui_PowerButton, -215);
+    lv_obj_set_align(ui_PowerButton, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_PowerButton, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_PowerButton, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_PowerButton, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_PowerButton, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_PowerButton, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_PowerButton, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_PowerImage = lv_img_create(ui_PowerButton);
+    lv_img_set_src(ui_PowerImage, &ui_img_power_png);
+    lv_obj_set_width(ui_PowerImage, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_PowerImage, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_PowerImage, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_PowerImage, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_PowerImage, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_PowerBox = lv_obj_create(ui_RecipeScreen);
+    lv_obj_set_width(ui_PowerBox, 400);
+    lv_obj_set_height(ui_PowerBox, 200);
+    lv_obj_set_align(ui_PowerBox, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_PowerBox, LV_OBJ_FLAG_HIDDEN);     /// Flags
+    lv_obj_clear_flag(ui_PowerBox, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Label19 = lv_label_create(ui_PowerBox);
+    lv_obj_set_width(ui_Label19, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label19, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label19, LV_ALIGN_TOP_MID);
+    lv_label_set_text(ui_Label19, "Power Settings");
+    lv_obj_set_style_text_font(ui_Label19, &lv_font_montserrat_28, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_GoToStartButton = lv_btn_create(ui_PowerBox);
+    lv_obj_set_width(ui_GoToStartButton, 200);
+    lv_obj_set_height(ui_GoToStartButton, LV_SIZE_CONTENT);    /// 40
+    lv_obj_set_align(ui_GoToStartButton, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_GoToStartButton, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_GoToStartButton, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_GoToStartButton, lv_color_hex(0x00C118), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_GoToStartButton, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Label21 = lv_label_create(ui_GoToStartButton);
+    lv_obj_set_width(ui_Label21, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label21, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label21, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label21, "Go to start screen");
+    lv_obj_set_style_text_font(ui_Label21, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_SleepButton = lv_btn_create(ui_PowerBox);
+    lv_obj_set_width(ui_SleepButton, 200);
+    lv_obj_set_height(ui_SleepButton, LV_SIZE_CONTENT);    /// 40
+    lv_obj_set_x(ui_SleepButton, 0);
+    lv_obj_set_y(ui_SleepButton, 60);
+    lv_obj_set_align(ui_SleepButton, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_SleepButton, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_SleepButton, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_SleepButton, lv_color_hex(0x00C118), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_SleepButton, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Label20 = lv_label_create(ui_SleepButton);
+    lv_obj_set_width(ui_Label20, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Label20, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Label20, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label20, "Sleep mode");
+    lv_obj_set_style_text_font(ui_Label20, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_ClosePowerBox = lv_btn_create(ui_PowerBox);
+    lv_obj_set_width(ui_ClosePowerBox, 50);
+    lv_obj_set_height(ui_ClosePowerBox, 50);
+    lv_obj_set_x(ui_ClosePowerBox, 15);
+    lv_obj_set_y(ui_ClosePowerBox, -11);
+    lv_obj_set_align(ui_ClosePowerBox, LV_ALIGN_TOP_RIGHT);
+    lv_obj_add_flag(ui_ClosePowerBox, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_ClosePowerBox, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_ClosePowerBox, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_ClosePowerBox, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_ClosePowerBox, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_ClosePowerBox, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Image5 = lv_img_create(ui_ClosePowerBox);
+    lv_img_set_src(ui_Image5, &ui_img_cross_png);
+    lv_obj_set_width(ui_Image5, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Image5, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_Image5, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image5, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image5, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_img_set_zoom(ui_Image5, 150);
+
     lv_obj_add_event_cb(ui_ShoppingTabButton4, ui_event_ShoppingTabButton4, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_BrowseTabButton5, ui_event_BrowseTabButton5, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_HomeTabButton5, ui_event_HomeTabButton5, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_SettingsButton, ui_event_SettingsButton, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_WifiButton, ui_event_WifiButton, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_PowerButton, ui_event_PowerButton, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_GoToStartButton, ui_event_GoToStartButton, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_ClosePowerBox, ui_event_ClosePowerBox, LV_EVENT_ALL, NULL);
 
 }

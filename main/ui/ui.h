@@ -37,12 +37,6 @@ extern lv_obj_t * ui_Connect;
 extern lv_obj_t * ui_Label1;
 extern lv_obj_t * ui_Keyboard1;
 extern lv_obj_t * ui_Container8;
-void ui_event_SettingsButton7(lv_event_t * e);
-extern lv_obj_t * ui_SettingsButton7;
-extern lv_obj_t * ui_SettingsImage7;
-void ui_event_WifiButton6(lv_event_t * e);
-extern lv_obj_t * ui_WifiButton6;
-extern lv_obj_t * ui_WifiImage6;
 void ui_event_HomeTabButton7(lv_event_t * e);
 extern lv_obj_t * ui_HomeTabButton7;
 extern lv_obj_t * ui_HomeLabel7;
@@ -52,6 +46,15 @@ extern lv_obj_t * ui_BrowseLabel7;
 void ui_event_ShoppingTabButton7(lv_event_t * e);
 extern lv_obj_t * ui_ShoppingTabButton7;
 extern lv_obj_t * ui_ShoppingLabel7;
+void ui_event_SettingsButton7(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton7;
+extern lv_obj_t * ui_SettingsImage7;
+void ui_event_WifiButton7(lv_event_t * e);
+extern lv_obj_t * ui_WifiButton7;
+extern lv_obj_t * ui_WifiImage7;
+void ui_event_PowerButton7(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton7;
+extern lv_obj_t * ui_PowerImage7;
 // SCREEN: ui_HomeScreen
 void ui_HomeScreen_screen_init(void);
 extern lv_obj_t * ui_HomeScreen;
@@ -61,9 +64,6 @@ extern lv_obj_t * ui_Label2;
 void ui_event_FavouriteTile1(lv_event_t * e);
 extern lv_obj_t * ui_FavouriteTile1;
 extern lv_obj_t * ui_FavouriteTile2;
-void ui_event_WifiButton7(lv_event_t * e);
-extern lv_obj_t * ui_WifiButton7;
-extern lv_obj_t * ui_WifiImage7;
 extern lv_obj_t * ui_FavouriteTile3;
 extern lv_obj_t * ui_FavouriteTile4;
 extern lv_obj_t * ui_FavouriteTile5;
@@ -78,6 +78,7 @@ void ui_event_RandomRecipeButton(lv_event_t * e);
 extern lv_obj_t * ui_RandomRecipeButton;
 extern lv_obj_t * ui_Label5;
 extern lv_obj_t * ui_Label3;
+void ui_event_BrowseButton(lv_event_t * e);
 extern lv_obj_t * ui_BrowseButton;
 extern lv_obj_t * ui_Label6;
 extern lv_obj_t * ui_Label7;
@@ -87,12 +88,18 @@ extern lv_obj_t * ui_SelectedLabel;
 void ui_event_BrowseTabButton(lv_event_t * e);
 extern lv_obj_t * ui_BrowseTabButton;
 extern lv_obj_t * ui_BrowseLabel;
+void ui_event_PowerButton5(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton5;
+extern lv_obj_t * ui_PowerImage5;
 void ui_event_ShoppingTabButton(lv_event_t * e);
 extern lv_obj_t * ui_ShoppingTabButton;
 extern lv_obj_t * ui_ShoppingLabel5;
-void ui_event_SettingsButton6(lv_event_t * e);
-extern lv_obj_t * ui_SettingsButton6;
-extern lv_obj_t * ui_SettingsImage6;
+void ui_event_WifiButton5(lv_event_t * e);
+extern lv_obj_t * ui_WifiButton5;
+extern lv_obj_t * ui_WifiImage5;
+void ui_event_SettingsButton5(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton5;
+extern lv_obj_t * ui_SettingsImage5;
 // SCREEN: ui_BrowseScreen
 void ui_BrowseScreen_screen_init(void);
 extern lv_obj_t * ui_BrowseScreen;
@@ -124,12 +131,15 @@ extern lv_obj_t * ui_HomeLabel1;
 void ui_event_ShoppingTabButton2(lv_event_t * e);
 extern lv_obj_t * ui_ShoppingTabButton2;
 extern lv_obj_t * ui_ShoppingLabel6;
-void ui_event_SettingsButton5(lv_event_t * e);
-extern lv_obj_t * ui_SettingsButton5;
-extern lv_obj_t * ui_SettingsImage5;
+void ui_event_SettingsButton4(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton4;
+extern lv_obj_t * ui_SettingsImage4;
 void ui_event_WifiButton4(lv_event_t * e);
 extern lv_obj_t * ui_WifiButton4;
 extern lv_obj_t * ui_WifiImage4;
+void ui_event_PowerButton4(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton4;
+extern lv_obj_t * ui_PowerImage4;
 // SCREEN: ui_ShoppingScreen
 void ui_ShoppingScreen_screen_init(void);
 extern lv_obj_t * ui_ShoppingScreen;
@@ -155,12 +165,15 @@ extern lv_obj_t * ui_HomeLabel3;
 extern lv_obj_t * ui_ShoppingTabButton1;
 extern lv_obj_t * ui_ShoppingLabel;
 extern lv_obj_t * ui_SelectedLabel3;
-void ui_event_SettingsButton4(lv_event_t * e);
-extern lv_obj_t * ui_SettingsButton4;
-extern lv_obj_t * ui_SettingsImage4;
+void ui_event_SettingsButton3(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton3;
+extern lv_obj_t * ui_SettingsImage3;
 void ui_event_WifiButton3(lv_event_t * e);
 extern lv_obj_t * ui_WifiButton3;
 extern lv_obj_t * ui_WifiImage3;
+void ui_event_PowerButton3(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton3;
+extern lv_obj_t * ui_PowerImage3;
 // SCREEN: ui_DescriptionScreen
 void ui_DescriptionScreen_screen_init(void);
 extern lv_obj_t * ui_DescriptionScreen;
@@ -186,12 +199,15 @@ extern lv_obj_t * ui_BrowseLabel2;
 void ui_event_HomeTabButton4(lv_event_t * e);
 extern lv_obj_t * ui_HomeTabButton4;
 extern lv_obj_t * ui_HomeLabel4;
-void ui_event_SettingsButton3(lv_event_t * e);
-extern lv_obj_t * ui_SettingsButton3;
-extern lv_obj_t * ui_SettingsImage3;
+void ui_event_SettingsButton2(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton2;
+extern lv_obj_t * ui_SettingsImage2;
 void ui_event_WifiButton2(lv_event_t * e);
 extern lv_obj_t * ui_WifiButton2;
 extern lv_obj_t * ui_WifiImage2;
+void ui_event_PowerButton2(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton2;
+extern lv_obj_t * ui_PowerImage2;
 // SCREEN: ui_RecipeScreen
 void ui_RecipeScreen_screen_init(void);
 extern lv_obj_t * ui_RecipeScreen;
@@ -217,6 +233,19 @@ extern lv_obj_t * ui_SettingsImage;
 void ui_event_WifiButton(lv_event_t * e);
 extern lv_obj_t * ui_WifiButton;
 extern lv_obj_t * ui_WifiImage;
+void ui_event_PowerButton(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton;
+extern lv_obj_t * ui_PowerImage;
+extern lv_obj_t * ui_PowerBox;
+extern lv_obj_t * ui_Label19;
+void ui_event_GoToStartButton(lv_event_t * e);
+extern lv_obj_t * ui_GoToStartButton;
+extern lv_obj_t * ui_Label21;
+extern lv_obj_t * ui_SleepButton;
+extern lv_obj_t * ui_Label20;
+void ui_event_ClosePowerBox(lv_event_t * e);
+extern lv_obj_t * ui_ClosePowerBox;
+extern lv_obj_t * ui_Image5;
 // SCREEN: ui_SettingsScreen
 void ui_SettingsScreen_screen_init(void);
 extern lv_obj_t * ui_SettingsScreen;
@@ -236,17 +265,22 @@ extern lv_obj_t * ui_BrowseLabel4;
 void ui_event_HomeTabButton2(lv_event_t * e);
 extern lv_obj_t * ui_HomeTabButton2;
 extern lv_obj_t * ui_HomeLabel2;
-extern lv_obj_t * ui_SettingsButton1;
-extern lv_obj_t * ui_SettingsImage1;
-void ui_event_WifiButton5(lv_event_t * e);
-extern lv_obj_t * ui_WifiButton5;
-extern lv_obj_t * ui_WifiImage5;
+void ui_event_SettingsButton6(lv_event_t * e);
+extern lv_obj_t * ui_SettingsButton6;
+extern lv_obj_t * ui_SettingsImage6;
+void ui_event_WifiButton6(lv_event_t * e);
+extern lv_obj_t * ui_WifiButton6;
+extern lv_obj_t * ui_WifiImage6;
+void ui_event_PowerButton6(lv_event_t * e);
+extern lv_obj_t * ui_PowerButton6;
+extern lv_obj_t * ui_PowerImage6;
 extern lv_obj_t * ui____initial_actions0;
 
 
 LV_IMG_DECLARE(ui__temporary_image);
 LV_IMG_DECLARE(ui_img_settings_png);    // assets/settings.png
 LV_IMG_DECLARE(ui_img_wifi_png);    // assets/wifi.png
+LV_IMG_DECLARE(ui_img_power_png);    // assets/power.png
 LV_IMG_DECLARE(ui_img_curry100_png);    // assets/curry100.png
 LV_IMG_DECLARE(ui_img_burger100_png);    // assets/burger100.png
 LV_IMG_DECLARE(ui_img_beans100_png);    // assets/beans100.png
@@ -255,6 +289,7 @@ LV_IMG_DECLARE(ui_img_dot100_png);    // assets/dot100.png
 LV_IMG_DECLARE(ui_img_ban100_png);    // assets/ban100.png
 LV_IMG_DECLARE(ui_img_curry200_png);    // assets/curry200.png
 LV_IMG_DECLARE(ui_img_arrow_png);    // assets/arrow.png
+LV_IMG_DECLARE(ui_img_cross_png);    // assets/cross.png
 
 
 

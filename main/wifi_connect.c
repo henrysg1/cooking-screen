@@ -1,8 +1,10 @@
 #include "wifi_connect.h"
+#include "time_display.h"
 #include "lvgl.h"
 #include "esp_log.h"
 #include "ui/ui.h"
 #include <stdlib.h>  // For malloc
+#include "esp_sntp.h"
 
 #define DEFAULT_SCAN_LIST_SIZE 10
 
@@ -31,6 +33,14 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t e
             _ui_label_set_property(ui_Status, _UI_LABEL_PROPERTY_TEXT, buf);
             example_lvgl_unlock();
         }
+
+        // Initialize SNTP
+        sntp_setoperatingmode(SNTP_OPMODE_POLL);
+        sntp_setservername(0, "pool.ntp.org");
+        sntp_init();
+        // Now that we have a connection, sync time and start the clock update task
+        ESP_LOGI(TAG, "Starting time synchronisation...");
+        xTaskCreate(updateClockTask, "updateClockTask", 4096, NULL, 5, NULL);
     }
 }
 

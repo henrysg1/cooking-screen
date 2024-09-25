@@ -12,6 +12,7 @@ SET(SOURCES screens/ui_WelcomeScreen.c
     ui_events.c
     images/ui_img_settings_png.c
     images/ui_img_wifi_png.c
+    images/ui_img_power_png.c
     images/ui_img_curry100_png.c
     images/ui_img_burger100_png.c
     images/ui_img_beans100_png.c
@@ -20,6 +21,7 @@ SET(SOURCES screens/ui_WelcomeScreen.c
     images/ui_img_ban100_png.c
     images/ui_img_curry200_png.c
     images/ui_img_arrow_png.c
+    images/ui_img_cross_png.c
     ui_temporary_image.c)
 
 add_library(ui ${SOURCES})

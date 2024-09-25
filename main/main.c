@@ -423,8 +423,6 @@ void app_main(void)
 
         example_lvgl_unlock();
     }
-    
-    xTaskCreate(updateClockTask, "ClockTask", 2048, NULL, 1, NULL);
 
     wifi_init(); 
 }
