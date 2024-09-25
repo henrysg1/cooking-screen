@@ -14,7 +14,7 @@ void ui_WifiScreen_screen_init(void)
     lv_obj_set_width(ui_SSID, 400);
     lv_obj_set_height(ui_SSID, LV_SIZE_CONTENT);    /// 42
     lv_obj_set_x(ui_SSID, 0);
-    lv_obj_set_y(ui_SSID, -150);
+    lv_obj_set_y(ui_SSID, -100);
     lv_obj_set_align(ui_SSID, LV_ALIGN_CENTER);
     lv_textarea_set_placeholder_text(ui_SSID, "SSID...");
     lv_textarea_set_one_line(ui_SSID, true);
@@ -24,8 +24,6 @@ void ui_WifiScreen_screen_init(void)
     ui_Password = lv_textarea_create(ui_WifiScreen);
     lv_obj_set_width(ui_Password, 400);
     lv_obj_set_height(ui_Password, LV_SIZE_CONTENT);    /// 42
-    lv_obj_set_x(ui_Password, 0);
-    lv_obj_set_y(ui_Password, -50);
     lv_obj_set_align(ui_Password, LV_ALIGN_CENTER);
     lv_textarea_set_placeholder_text(ui_Password, "Password");
     lv_textarea_set_one_line(ui_Password, true);
@@ -36,7 +34,7 @@ void ui_WifiScreen_screen_init(void)
     lv_obj_set_width(ui_Status, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Status, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_Status, 0);
-    lv_obj_set_y(ui_Status, 100);
+    lv_obj_set_y(ui_Status, 150);
     lv_obj_set_align(ui_Status, LV_ALIGN_CENTER);
     lv_label_set_text(ui_Status, "Not Connected");
 
@@ -44,7 +42,7 @@ void ui_WifiScreen_screen_init(void)
     lv_obj_set_width(ui_Connect, 100);
     lv_obj_set_height(ui_Connect, 50);
     lv_obj_set_x(ui_Connect, 0);
-    lv_obj_set_y(ui_Connect, 20);
+    lv_obj_set_y(ui_Connect, 70);
     lv_obj_set_align(ui_Connect, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_Connect, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_clear_flag(ui_Connect, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
@@ -63,8 +61,136 @@ void ui_WifiScreen_screen_init(void)
     lv_obj_set_align(ui_Keyboard1, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN);     /// Flags
 
+    ui_Container8 = lv_obj_create(ui_WifiScreen);
+    lv_obj_remove_style_all(ui_Container8);
+    lv_obj_set_width(ui_Container8, 800);
+    lv_obj_set_height(ui_Container8, 50);
+    lv_obj_set_x(ui_Container8, 0);
+    lv_obj_set_y(ui_Container8, -215);
+    lv_obj_set_align(ui_Container8, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Container8, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_Container8, lv_color_hex(0xB8B8B8), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Container8, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_SettingsButton7 = lv_btn_create(ui_WifiScreen);
+    lv_obj_set_width(ui_SettingsButton7, 50);
+    lv_obj_set_height(ui_SettingsButton7, 50);
+    lv_obj_set_x(ui_SettingsButton7, 370);
+    lv_obj_set_y(ui_SettingsButton7, -215);
+    lv_obj_set_align(ui_SettingsButton7, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_SettingsButton7, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_SettingsButton7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_SettingsButton7, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_SettingsButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_SettingsButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_SettingsButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_SettingsImage7 = lv_img_create(ui_SettingsButton7);
+    lv_img_set_src(ui_SettingsImage7, &ui_img_settings_png);
+    lv_obj_set_width(ui_SettingsImage7, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_SettingsImage7, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_SettingsImage7, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_SettingsImage7, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_SettingsImage7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_img_set_zoom(ui_SettingsImage7, 180);
+
+    ui_WifiButton6 = lv_btn_create(ui_WifiScreen);
+    lv_obj_set_width(ui_WifiButton6, 50);
+    lv_obj_set_height(ui_WifiButton6, 50);
+    lv_obj_set_x(ui_WifiButton6, 310);
+    lv_obj_set_y(ui_WifiButton6, -215);
+    lv_obj_set_align(ui_WifiButton6, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_WifiButton6, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_WifiButton6, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_WifiButton6, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_WifiButton6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_WifiButton6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_WifiButton6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_WifiImage6 = lv_img_create(ui_WifiButton6);
+    lv_img_set_src(ui_WifiImage6, &ui_img_wifi_png);
+    lv_obj_set_width(ui_WifiImage6, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_WifiImage6, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_WifiImage6, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_WifiImage6, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_WifiImage6, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_HomeTabButton7 = lv_btn_create(ui_WifiScreen);
+    lv_obj_set_width(ui_HomeTabButton7, 140);
+    lv_obj_set_height(ui_HomeTabButton7, 50);
+    lv_obj_set_x(ui_HomeTabButton7, -330);
+    lv_obj_set_y(ui_HomeTabButton7, -215);
+    lv_obj_set_align(ui_HomeTabButton7, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_HomeTabButton7, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_HomeTabButton7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_HomeTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_HomeTabButton7, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_HomeTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_HomeTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_HomeTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_HomeLabel7 = lv_label_create(ui_HomeTabButton7);
+    lv_obj_set_width(ui_HomeLabel7, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_HomeLabel7, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_HomeLabel7, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_HomeLabel7, "Home");
+    lv_obj_set_style_text_color(ui_HomeLabel7, lv_color_hex(0x110700), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_HomeLabel7, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_HomeLabel7, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_BrowseTabButton7 = lv_btn_create(ui_WifiScreen);
+    lv_obj_set_width(ui_BrowseTabButton7, 140);
+    lv_obj_set_height(ui_BrowseTabButton7, 50);
+    lv_obj_set_x(ui_BrowseTabButton7, -190);
+    lv_obj_set_y(ui_BrowseTabButton7, -215);
+    lv_obj_set_align(ui_BrowseTabButton7, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_BrowseTabButton7, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_BrowseTabButton7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_BrowseTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_BrowseTabButton7, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_BrowseTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_BrowseTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_BrowseTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_BrowseLabel7 = lv_label_create(ui_BrowseTabButton7);
+    lv_obj_set_width(ui_BrowseLabel7, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_BrowseLabel7, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_BrowseLabel7, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_BrowseLabel7, "Browse");
+    lv_obj_set_style_text_color(ui_BrowseLabel7, lv_color_hex(0x110700), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_BrowseLabel7, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_BrowseLabel7, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_ShoppingTabButton7 = lv_btn_create(ui_WifiScreen);
+    lv_obj_set_width(ui_ShoppingTabButton7, 140);
+    lv_obj_set_height(ui_ShoppingTabButton7, 50);
+    lv_obj_set_x(ui_ShoppingTabButton7, -50);
+    lv_obj_set_y(ui_ShoppingTabButton7, -215);
+    lv_obj_set_align(ui_ShoppingTabButton7, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_ShoppingTabButton7, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_ShoppingTabButton7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_ShoppingTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_ShoppingTabButton7, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_ShoppingTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui_ShoppingTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_spread(ui_ShoppingTabButton7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_ShoppingLabel7 = lv_label_create(ui_ShoppingTabButton7);
+    lv_obj_set_width(ui_ShoppingLabel7, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_ShoppingLabel7, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_ShoppingLabel7, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_ShoppingLabel7, "Shopping List");
+    lv_obj_set_style_text_color(ui_ShoppingLabel7, lv_color_hex(0x110700), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_ShoppingLabel7, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_ShoppingLabel7, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
+
     lv_obj_add_event_cb(ui_SSID, ui_event_SSID, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Password, ui_event_Password, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Connect, ui_event_Connect, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_SettingsButton7, ui_event_SettingsButton7, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_WifiButton6, ui_event_WifiButton6, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_HomeTabButton7, ui_event_HomeTabButton7, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_BrowseTabButton7, ui_event_BrowseTabButton7, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_ShoppingTabButton7, ui_event_ShoppingTabButton7, LV_EVENT_ALL, NULL);
 
 }

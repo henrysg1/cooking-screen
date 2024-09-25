@@ -5,10 +5,13 @@ SET(SOURCES screens/ui_WelcomeScreen.c
     screens/ui_ShoppingScreen.c
     screens/ui_DescriptionScreen.c
     screens/ui_RecipeScreen.c
+    screens/ui_SettingsScreen.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
     ui_events.c
+    images/ui_img_settings_png.c
+    images/ui_img_wifi_png.c
     images/ui_img_curry100_png.c
     images/ui_img_burger100_png.c
     images/ui_img_beans100_png.c

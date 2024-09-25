@@ -43,7 +43,7 @@ static const char *TAG = "example";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (18 * 1000 * 1000)
+#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (14 * 1000 * 1000)
 #define EXAMPLE_LCD_BK_LIGHT_ON_LEVEL  1
 #define EXAMPLE_LCD_BK_LIGHT_OFF_LEVEL !EXAMPLE_LCD_BK_LIGHT_ON_LEVEL
 #define EXAMPLE_PIN_NUM_BK_LIGHT       -1
@@ -412,6 +412,8 @@ void app_main(void)
     ESP_LOGI(TAG, "Create LVGL task");
     xTaskCreate(example_lvgl_port_task, "LVGL", EXAMPLE_LVGL_TASK_STACK_SIZE, NULL, EXAMPLE_LVGL_TASK_PRIORITY, NULL);
 
+    esp_wifi_set_ps(WIFI_PS_NONE);  // Disable Wi-Fi power save mode
+    
     ESP_LOGI(TAG, "Display LVGL Scatter Chart");
     
     // Lock the mutex due to the LVGL APIs are not thread-safe
@@ -424,5 +426,5 @@ void app_main(void)
     
     xTaskCreate(updateClockTask, "ClockTask", 2048, NULL, 1, NULL);
 
-    //wifi_init(); 
+    wifi_init(); 
 }
