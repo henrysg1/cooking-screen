@@ -5,6 +5,8 @@
 #include "ui/ui.h"
 #include <stdlib.h>  // For malloc
 #include "esp_sntp.h"
+#include "nvs_flash.h"
+#include "nvs.h"
 
 #define DEFAULT_SCAN_LIST_SIZE 10
 
@@ -12,8 +14,42 @@
 extern bool example_lvgl_lock(int timeout_ms);
 extern void example_lvgl_unlock(void);
 
-
 static const char *TAG = "example";
+
+// Function to save Wi-Fi credentials to NVS
+void save_wifi_credentials(const char* ssid, const char* password) {
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("wifi_creds", NVS_READWRITE, &nvs_handle);
+    if (err == ESP_OK) {
+        nvs_set_str(nvs_handle, "ssid", ssid);
+        nvs_set_str(nvs_handle, "password", password);
+        nvs_commit(nvs_handle);
+        nvs_close(nvs_handle);
+        ESP_LOGI(TAG, "Wi-Fi credentials saved to NVS");
+    } else {
+        ESP_LOGE(TAG, "Failed to open NVS handle");
+    }
+}
+
+// Function to retrieve Wi-Fi credentials from NVS
+bool load_wifi_credentials(char* ssid, size_t ssid_size, char* password, size_t password_size) {
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("wifi_creds", NVS_READONLY, &nvs_handle);
+    if (err == ESP_OK) {
+        err = nvs_get_str(nvs_handle, "ssid", ssid, &ssid_size);
+        if (err == ESP_OK) {
+            err = nvs_get_str(nvs_handle, "password", password, &password_size);
+            if (err == ESP_OK) {
+                ESP_LOGI(TAG, "Wi-Fi credentials loaded from NVS");
+                nvs_close(nvs_handle);
+                return true;
+            }
+        }
+        nvs_close(nvs_handle);
+    }
+    ESP_LOGE(TAG, "Failed to load Wi-Fi credentials from NVS");
+    return false;
+}
 
 // Wi-Fi event handler
 static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
@@ -63,34 +99,29 @@ void wifi_init(void) {
         },
     };
 
+    // Try to load saved Wi-Fi credentials
+    char ssid[32] = {0};
+    char password[64] = {0};
+    if (load_wifi_credentials(ssid, sizeof(ssid), password, sizeof(password))) {
+        // Set Wi-Fi credentials from NVS if they exist
+        strncpy((char *) wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid) - 1);
+        strncpy((char *) wifi_config.sta.password, password, sizeof(wifi_config.sta.password) - 1);
+        wifi_config.sta.ssid[sizeof(wifi_config.sta.ssid) - 1] = '\0';
+        wifi_config.sta.password[sizeof(wifi_config.sta.password) - 1] = '\0';
+    } else {
+        ESP_LOGI(TAG, "No Wi-Fi credentials saved. Waiting for user input.");
+        // You may want to handle this differently, like showing a UI prompt
+    }
+
     esp_wifi_set_mode(WIFI_MODE_STA);
     esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config);
     esp_wifi_start();
-
-    wifi_scan();
-}
-
-void wifi_scan(void) {
-    uint16_t number = DEFAULT_SCAN_LIST_SIZE;
-    wifi_ap_record_t ap_info[DEFAULT_SCAN_LIST_SIZE];
-    uint16_t ap_count = 0;
-    memset(ap_info, 0, sizeof(ap_info));
-
-    esp_wifi_scan_start(NULL, true);
-    esp_wifi_scan_get_ap_records(&number, ap_info);
-    esp_wifi_scan_get_ap_num(&ap_count);
-    ESP_LOGI(TAG, "Total APs found: %u", ap_count);
-
-    for (int i = 0; i < ap_count; i++) {
-        ESP_LOGI(TAG, "SSID \t\t%s", ap_info[i].ssid);
-        // You can also update your UI to display the available SSIDs
-    }
 }
 
 // Wi-Fi connection function with enhanced safety checks
 void wifi_connect(const char* ssid, const char* password) {
     wifi_config_t wifi_config;
-    
+
     // Ensure that SSID and Password text areas are not NULL before proceeding
     if (ssid == NULL || password == NULL) {
         ESP_LOGE(TAG, "SSID or Password is NULL");
@@ -130,6 +161,9 @@ void wifi_connect(const char* ssid, const char* password) {
 
         example_lvgl_unlock();  // Unlock after UI update
     }
+
+    // Save Wi-Fi credentials in NVS
+    save_wifi_credentials(ssid, password);
 
     free(log_buffer);  // Free the dynamically allocated memory
 }
